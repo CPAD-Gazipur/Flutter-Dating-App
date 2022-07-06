@@ -16,6 +16,8 @@ class AppRoute {
         return ChatScreen.route();
       case MatchesScreen.routeName:
         return MatchesScreen.route();
+      case OnBoardingScreen.routeName:
+        return OnBoardingScreen.route();
       case UserScreen.routeName:
         return UserScreen.route(user: settings.arguments as User);
       default:
