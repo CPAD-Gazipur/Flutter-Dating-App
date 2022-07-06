@@ -2,53 +2,55 @@ import 'package:flutter/material.dart';
 
 ThemeData theme() {
   return ThemeData(
+    primaryColor: const Color(0xFF2B2E4A),
+    // primaryColorDark: Color(0xFFFC0028),
+    // primaryColorLight: Color(0xFFFE9AAA),
+    accentColor: const Color(0xFFE84545),
     scaffoldBackgroundColor: Colors.white,
-    fontFamily: 'Avenir',
-    textTheme: textTheme(),
-  );
-}
+    backgroundColor: const Color(0xFFF4F4F4),
 
-TextTheme textTheme() {
-  return const TextTheme(
-    headline1: TextStyle(
-      color: Colors.black,
-      fontSize: 32,
-      fontWeight: FontWeight.bold,
-    ),
-    headline2: TextStyle(
-      color: Colors.black,
-      fontSize: 22,
-      fontWeight: FontWeight.bold,
-    ),
-    headline3: TextStyle(
-      color: Colors.black,
-      fontSize: 20,
-      fontWeight: FontWeight.bold,
-    ),
-    headline4: TextStyle(
-      color: Colors.black,
-      fontSize: 16,
-      fontWeight: FontWeight.bold,
-    ),
-    headline5: TextStyle(
-      color: Colors.black,
-      fontSize: 14,
-      fontWeight: FontWeight.bold,
-    ),
-    headline6: TextStyle(
-      color: Colors.black,
-      fontSize: 14,
-      fontWeight: FontWeight.normal,
-    ),
-    bodyText1: TextStyle(
-      color: Colors.black,
-      fontSize: 12,
-      fontWeight: FontWeight.normal,
-    ),
-    bodyText2: TextStyle(
-      color: Colors.black,
-      fontSize: 10,
-      fontWeight: FontWeight.normal,
+    fontFamily: 'Optima',
+    textTheme: const TextTheme(
+      headline1: TextStyle(
+        color: Color(0xFF2B2E4A),
+        fontWeight: FontWeight.bold,
+        fontSize: 36,
+      ),
+      headline2: TextStyle(
+        color: Color(0xFF2B2E4A),
+        fontWeight: FontWeight.bold,
+        fontSize: 24,
+      ),
+      headline3: TextStyle(
+        color: Color(0xFF2B2E4A),
+        fontWeight: FontWeight.bold,
+        fontSize: 18,
+      ),
+      headline4: TextStyle(
+        color: Color(0xFF2B2E4A),
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+      ),
+      headline5: TextStyle(
+        color: Color(0xFF2B2E4A),
+        fontWeight: FontWeight.bold,
+        fontSize: 14,
+      ),
+      headline6: TextStyle(
+        color: Color(0xFF2B2E4A),
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+      ),
+      bodyText1: TextStyle(
+        color: Color(0xFF2B2E4A),
+        fontWeight: FontWeight.normal,
+        fontSize: 12,
+      ),
+      bodyText2: TextStyle(
+        color: Color(0xFF2B2E4A),
+        fontWeight: FontWeight.normal,
+        fontSize: 10,
+      ),
     ),
   );
 }
