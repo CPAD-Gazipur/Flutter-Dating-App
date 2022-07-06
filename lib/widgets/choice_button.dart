@@ -9,11 +9,11 @@ class ChoiceButton extends StatelessWidget {
   final IconData icon;
   const ChoiceButton({
     Key? key,
-    required this.height,
-    required this.width,
-    required this.size,
+    this.height = 60,
+    this.width = 60,
+    this.size = 25,
     required this.color,
-    required this.hasGradiant,
+    this.hasGradiant = false,
     required this.icon,
   }) : super(key: key);
 

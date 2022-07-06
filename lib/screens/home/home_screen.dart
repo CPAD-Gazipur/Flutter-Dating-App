@@ -27,30 +27,39 @@ class HomeScreen extends StatelessWidget {
         } else if (state is SwipeLoaded) {
           return Column(
             children: [
-              Draggable(
-                feedback: UserCard(
-                  user: state.users[0],
-                ),
-                childWhenDragging: UserCard(
-                  user: state.users[1],
-                ),
-                onDragEnd: (drag) {
-                  if (drag.velocity.pixelsPerSecond.dx < 0) {
-                    context.read<SwipeBloc>().add(
-                          SwipeLeftEvent(
-                            user: state.users[0],
-                          ),
-                        );
-                  } else {
-                    context.read<SwipeBloc>().add(
-                          SwipeRightEvent(
-                            user: state.users[0],
-                          ),
-                        );
-                  }
+              InkWell(
+                onDoubleTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/user',
+                    arguments: state.users[0],
+                  );
                 },
-                child: UserCard(
-                  user: state.users[0],
+                child: Draggable(
+                  feedback: UserCard(
+                    user: state.users[0],
+                  ),
+                  childWhenDragging: UserCard(
+                    user: state.users[1],
+                  ),
+                  onDragEnd: (drag) {
+                    if (drag.velocity.pixelsPerSecond.dx < 0) {
+                      context.read<SwipeBloc>().add(
+                            SwipeLeftEvent(
+                              user: state.users[0],
+                            ),
+                          );
+                    } else {
+                      context.read<SwipeBloc>().add(
+                            SwipeRightEvent(
+                              user: state.users[0],
+                            ),
+                          );
+                    }
+                  },
+                  child: UserCard(
+                    user: state.users[0],
+                  ),
                 ),
               ),
               Padding(
@@ -70,11 +79,7 @@ class HomeScreen extends StatelessWidget {
                             );
                       },
                       child: ChoiceButton(
-                        height: 60,
-                        width: 60,
-                        size: 25,
-                        color: Theme.of(context).accentColor,
-                        hasGradiant: false,
+                        color: Theme.of(context).colorScheme.secondary,
                         icon: Icons.clear_rounded,
                       ),
                     ),
@@ -96,11 +101,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     ChoiceButton(
-                      height: 60,
-                      width: 60,
-                      size: 25,
                       color: Theme.of(context).primaryColor,
-                      hasGradiant: false,
                       icon: Icons.watch_later_outlined,
                     ),
                   ],

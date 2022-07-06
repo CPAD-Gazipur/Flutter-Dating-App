@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../models/models.dart';
 import '../screens/screens.dart';
 
 class AppRoute {
@@ -16,7 +17,7 @@ class AppRoute {
       case MatchesScreen.routeName:
         return MatchesScreen.route();
       case UserScreen.routeName:
-        return UserScreen.route();
+        return UserScreen.route(user: settings.arguments as User);
       default:
         return _errorRoute();
     }
