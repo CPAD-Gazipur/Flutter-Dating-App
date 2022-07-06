@@ -73,7 +73,6 @@ class UserCard extends StatelessWidget {
                         ),
                   ),
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       UserSmallImage(userImage: user.imageUrls[1]),
                       UserSmallImage(userImage: user.imageUrls[2]),
