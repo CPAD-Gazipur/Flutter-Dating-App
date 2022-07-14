@@ -37,6 +37,13 @@ class HomeScreen extends StatelessWidget {
                     arguments: state.users[0],
                   );
                 },
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/user',
+                    arguments: state.users[0],
+                  );
+                },
                 child: Draggable(
                   feedback: UserCard(
                     user: state.users[0],
@@ -66,7 +73,7 @@ class HomeScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 8.0,
+                  vertical: 5.0,
                   horizontal: 60,
                 ),
                 child: Row(
