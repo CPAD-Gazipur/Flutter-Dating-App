@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   equatable: ^2.0.3
   flutter_bloc: ^8.0.1
+  step_progress_indicator: ^1.0.2
 
 dev_dependencies:
   flutter_test:

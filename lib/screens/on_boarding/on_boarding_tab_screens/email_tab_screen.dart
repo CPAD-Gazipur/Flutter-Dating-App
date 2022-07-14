@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 import '../../../widgets/widgets.dart';
 
@@ -12,30 +13,44 @@ class EmailTabScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 30,
-          vertical: 10,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                CustomTextHeader(
-                  tabController: tabController,
-                  text: 'What\'s Your Email Address?',
-                ),
-                CustomTextField(
-                  tabController: tabController,
-                  hintText: 'ENTER YOUR EMAIL',
-                ),
-              ],
-            ),
-            CustomButton(
-              tabController: tabController,
-              text: 'NEXT STEP',
-            ),
-          ],
-        ));
+      padding: const EdgeInsets.symmetric(
+        horizontal: 30,
+        vertical: 10,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            children: [
+              CustomTextHeader(
+                tabController: tabController,
+                text: 'What\'s Your Email Address?',
+              ),
+              CustomTextField(
+                tabController: tabController,
+                hintText: 'ENTER YOUR EMAIL',
+              ),
+            ],
+          ),
+          Column(
+            children: [
+              StepProgressIndicator(
+                totalSteps: 6,
+                currentStep: 1,
+                selectedColor: Theme.of(context).primaryColor,
+                unselectedColor: Theme.of(context).backgroundColor,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomButton(
+                tabController: tabController,
+                text: 'NEXT STEP',
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
