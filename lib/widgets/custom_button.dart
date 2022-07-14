@@ -14,10 +14,10 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
+        gradient: LinearGradient(
           colors: [
-            Color(0xFFD84482),
-            Color(0xFFF77F46),
+            Theme.of(context).primaryColor,
+            Theme.of(context).accentColor,
           ],
           begin: Alignment.bottomLeft,
           end: Alignment.topRight,

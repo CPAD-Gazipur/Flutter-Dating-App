@@ -1,4 +1,4 @@
-export 'bio_screen.dart';
+export 'biography_tab_screen.dart';
 export 'demographics_tab_screen.dart';
 export 'email_tab_screen.dart';
 export 'email_verification_tab_screen.dart';

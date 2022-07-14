@@ -20,6 +20,7 @@ class OnBoardingScreen extends StatelessWidget {
     Tab(text: 'Email Verification'),
     Tab(text: 'Demographics'),
     Tab(text: 'Pictures'),
+    Tab(text: 'Biography'),
   ];
 
   @override
@@ -45,6 +46,7 @@ class OnBoardingScreen extends StatelessWidget {
                   EmailVerificationTabScreen(tabController: tabController),
                   DemographicsTabScreen(tabController: tabController),
                   PicturesTabScreen(tabController: tabController),
+                  BiographyTabScreen(tabController: tabController),
                 ],
               ),
             );
