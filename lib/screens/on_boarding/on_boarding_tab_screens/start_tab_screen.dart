@@ -42,7 +42,10 @@ class StartTabScreen extends StatelessWidget {
                 const SizedBox(height: 20),
               ],
             ),
-            CustomButton(tabController: tabController),
+            CustomButton(
+              tabController: tabController,
+              text: 'START',
+            ),
           ],
         ));
   }

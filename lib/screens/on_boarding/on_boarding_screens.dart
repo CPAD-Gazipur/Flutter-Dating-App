@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dating_app/widgets/widgets.dart';
 
-import 'onboarding_tab_screens/screens.dart';
+import 'on_boarding_tab_screens/screens.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -15,9 +15,9 @@ class OnBoardingScreen extends StatelessWidget {
   }
 
   static const List<Tab> tabs = <Tab>[
-    Tab(
-      text: 'Start',
-    ),
+    Tab(text: 'Start'),
+    Tab(text: 'Email'),
+    Tab(text: 'EmailCode'),
   ];
 
   @override
@@ -39,6 +39,8 @@ class OnBoardingScreen extends StatelessWidget {
               body: TabBarView(
                 children: [
                   StartTabScreen(tabController: tabController),
+                  EmailTabScreen(tabController: tabController),
+                  EmailVerificationTabScreen(tabController: tabController),
                 ],
               ),
             );
