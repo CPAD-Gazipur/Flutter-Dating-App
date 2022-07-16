@@ -12,6 +12,7 @@ class DemographicsTabScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = TextEditingController();
     return Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 30,
@@ -46,7 +47,7 @@ class DemographicsTabScreen extends StatelessWidget {
                   text: 'What\'s Your Age?',
                 ),
                 CustomTextField(
-                  tabController: tabController,
+                  controller: controller,
                   hintText: 'ENTER YOUR AGE',
                 )
               ],

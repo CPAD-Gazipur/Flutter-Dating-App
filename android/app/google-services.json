@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "751919493353",
+    "project_id": "flutter-dating-app-b5672",
+    "storage_bucket": "flutter-dating-app-b5672.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751919493353:android:78a30c411e6204e92cc078",
+        "android_client_info": {
+          "package_name": "com.alaminkarno.flutter_dating_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751919493353-dcrn09jg88pspqbur8jd5f7jmgo45b2r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alaminkarno.flutter_dating_app",
+            "certificate_hash": "cb2720aa45c39703b1c3e45cfdeafaeb65fb2ad0"
+          }
+        },
+        {
+          "client_id": "751919493353-ugb2qq3q0k5cmi8l6k27cfq1nuu542p0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu9Qn_qA0Pm0Zmc9_EYNeH_Fvz9Wcgeek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751919493353-ugb2qq3q0k5cmi8l6k27cfq1nuu542p0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

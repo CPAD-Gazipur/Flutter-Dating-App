@@ -12,6 +12,7 @@ class BiographyTabScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = TextEditingController();
     return Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 30,
@@ -28,7 +29,7 @@ class BiographyTabScreen extends StatelessWidget {
                   text: 'Describe Yourself a Bit ?',
                 ),
                 CustomTextField(
-                  tabController: tabController,
+                  controller: controller,
                   hintText: 'ENTER YOUR BIO',
                 ),
                 const SizedBox(

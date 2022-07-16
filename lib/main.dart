@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dating_app/config/config.dart';
@@ -6,7 +7,9 @@ import 'package:flutter_dating_app/screens/screens.dart';
 import 'blocs/blocs.dart';
 import 'models/models.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: theme(),
           onGenerateRoute: AppRoute.onGenerateRoute,
-          initialRoute: ProfileScreen.routeName,
+          initialRoute: OnBoardingScreen.routeName,
         ));
   }
 }

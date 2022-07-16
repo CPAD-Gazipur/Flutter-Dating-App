@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>751919493353-4i0ov7af40589ks8les3jbnshlgqtesu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.751919493353-4i0ov7af40589ks8les3jbnshlgqtesu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>751919493353-dcrn09jg88pspqbur8jd5f7jmgo45b2r.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDUrKLsGmZByIMw_qtEmKkJYF1roqyMTPc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>751919493353</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.alaminkarno.flutterDatingApp</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-dating-app-b5672</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-dating-app-b5672.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:751919493353:ios:6c46c52dc6b9f7662cc078</string>
+</dict>
+</plist>

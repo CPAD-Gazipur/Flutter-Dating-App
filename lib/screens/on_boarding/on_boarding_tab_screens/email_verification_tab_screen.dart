@@ -13,6 +13,7 @@ class EmailVerificationTabScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = TextEditingController();
     return Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 30,
@@ -28,7 +29,7 @@ class EmailVerificationTabScreen extends StatelessWidget {
                   text: 'Did You Get The Verification Code?',
                 ),
                 CustomTextField(
-                  tabController: tabController,
+                  controller: controller,
                   hintText: 'ENTER YOUR CODE',
                 ),
               ],
