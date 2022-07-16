@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomTextContainer extends StatelessWidget {
-  final TabController tabController;
+  final TabController? tabController;
   final String text;
   const CustomTextContainer({
     Key? key,
-    required this.tabController,
+    this.tabController,
     required this.text,
   }) : super(key: key);
 
@@ -23,7 +23,7 @@ class CustomTextContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(5.0),
           gradient: LinearGradient(
             colors: [
-              Theme.of(context).primaryColor,
+              Theme.of(context).primaryColorLight,
               Theme.of(context).accentColor,
             ],
             begin: Alignment.bottomLeft,

@@ -18,6 +18,8 @@ class AppRoute {
         return MatchesScreen.route();
       case OnBoardingScreen.routeName:
         return OnBoardingScreen.route();
+      case ProfileScreen.routeName:
+        return ProfileScreen.route();
       case UserScreen.routeName:
         return UserScreen.route(user: settings.arguments as User);
       default:
