@@ -111,19 +111,6 @@ class ChatScreen extends StatelessWidget {
             height: 100,
             child: Row(
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.send_outlined,
-                    ),
-                    color: Colors.white,
-                  ),
-                ),
                 const Expanded(
                   child: TextField(
                     decoration: InputDecoration(
@@ -142,6 +129,19 @@ class ChatScreen extends StatelessWidget {
                         borderSide: BorderSide(color: Colors.white),
                       ),
                     ),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.send_outlined,
+                    ),
+                    color: Colors.white,
                   ),
                 ),
               ],
