@@ -13,7 +13,7 @@ class AppRoute {
       case HomeScreen.routeName:
         return HomeScreen.route();
       case ChatScreen.routeName:
-        return ChatScreen.route();
+        return ChatScreen.route(userMatch: settings.arguments as UserMatch);
       case MatchesScreen.routeName:
         return MatchesScreen.route();
       case OnBoardingScreen.routeName:
