@@ -41,43 +41,21 @@ class PicturesTabScreen extends StatelessWidget {
                     } else if (state is ImagesLoaded) {
                       var imageCount = state.imageUrls.length;
 
-                      return Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              (imageCount > 0)
+                      return SizedBox(
+                        height: 350,
+                        child: GridView.builder(
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              childAspectRatio: 0.66,
+                            ),
+                            itemCount: 6,
+                            itemBuilder: (BuildContext context, int index) {
+                              return (imageCount > index)
                                   ? CustomImageContainer(
-                                      imageUrl: state.imageUrls[0])
-                                  : const CustomImageContainer(),
-                              (imageCount > 1)
-                                  ? CustomImageContainer(
-                                      imageUrl: state.imageUrls[1])
-                                  : const CustomImageContainer(),
-                              (imageCount > 2)
-                                  ? CustomImageContainer(
-                                      imageUrl: state.imageUrls[2])
-                                  : const CustomImageContainer(),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              (imageCount > 3)
-                                  ? CustomImageContainer(
-                                      imageUrl: state.imageUrls[3])
-                                  : const CustomImageContainer(),
-                              (imageCount > 4)
-                                  ? CustomImageContainer(
-                                      imageUrl: state.imageUrls[4])
-                                  : const CustomImageContainer(),
-                              (imageCount > 5)
-                                  ? CustomImageContainer(
-                                      imageUrl: state.imageUrls[5])
-                                  : const CustomImageContainer(),
-                            ],
-                          ),
-                        ],
+                                      imageUrl: state.imageUrls[index])
+                                  : const CustomImageContainer();
+                            }),
                       );
                     } else {
                       return const Center(

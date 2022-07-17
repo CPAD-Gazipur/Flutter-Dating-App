@@ -39,7 +39,7 @@ class User extends Equatable {
 
   static User fromSnapshot(DocumentSnapshot snapshot) {
     User user = User(
-      id: snapshot['id'],
+      id: snapshot.id,
       name: snapshot['name'],
       age: snapshot['age'],
       gender: snapshot['gender'],
@@ -51,6 +51,43 @@ class User extends Equatable {
     );
 
     return user;
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'age': age,
+      'gender': gender,
+      'imageUrls': imageUrls,
+      'interests': interests,
+      'bio': bio,
+      'jobTitle': jobTitle,
+      'location': location,
+    };
+  }
+
+  User copyWith({
+    String? id,
+    String? name,
+    int? age,
+    String? gender,
+    List<dynamic>? imageUrls,
+    List<dynamic>? interests,
+    String? bio,
+    String? jobTitle,
+    String? location,
+  }) {
+    return User(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      age: age ?? this.age,
+      gender: gender ?? this.gender,
+      imageUrls: imageUrls ?? this.imageUrls,
+      interests: interests ?? this.interests,
+      bio: bio ?? this.bio,
+      jobTitle: jobTitle ?? this.jobTitle,
+      location: location ?? this.location,
+    );
   }
 
   static List<User> users = [
