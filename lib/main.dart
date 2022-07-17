@@ -2,11 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dating_app/config/config.dart';
-import 'package:flutter_dating_app/repositories/auth/auth_repository.dart';
 import 'package:flutter_dating_app/screens/screens.dart';
 
 import 'blocs/blocs.dart';
 import 'models/models.dart';
+import 'repositories/repositories.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,17 +22,33 @@ class MyApp extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider(
-          create: (_) => AuthRepository(),
+          create: (context) => AuthRepository(),
+        ),
+        RepositoryProvider(
+          create: (context) => DatabaseRepository(),
+        ),
+        RepositoryProvider(
+          create: (context) => StorageRepository(),
         ),
       ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (_) =>
-                AuthBloc(authRepository: context.read<AuthRepository>()),
+            create: (context) => AuthBloc(
+              authRepository: context.read<AuthRepository>(),
+            ),
+          ),
+          BlocProvider<OnBoardingBloc>(
+            create: (context) => OnBoardingBloc(
+              databaseRepository: context.read<DatabaseRepository>(),
+              storageRepository: context.read<StorageRepository>(),
+            ),
           ),
           BlocProvider(
-            create: (_) => SwipeBloc()..add(LoadUsersEvent(users: User.users)),
+            create: (context) => SwipeBloc()
+              ..add(
+                LoadUsersEvent(users: User.users),
+              ),
           ),
         ],
         child: MaterialApp(
@@ -40,7 +56,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: theme(),
           onGenerateRoute: AppRoute.onGenerateRoute,
-          initialRoute: OnBoardingScreen.routeName,
+          initialRoute: SplashScreen.routeName,
         ),
       ),
     );

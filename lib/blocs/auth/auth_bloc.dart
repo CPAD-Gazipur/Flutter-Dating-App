@@ -29,7 +29,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     AuthUserChanged event,
     Emitter<AuthState> emit,
   ) {
-    emit(AuthState.authenticated(user: event.user));
+    event.user != null
+        ? emit(AuthState.authenticated(user: event.user!))
+        : emit(const AuthState.unauthenticated());
   }
 
   @override
