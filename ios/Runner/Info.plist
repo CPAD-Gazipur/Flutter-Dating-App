@@ -26,6 +26,12 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>This app need photo library permission to upload user image.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>This app need camera permission to upload user image.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app does not need microphone permission.</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>
