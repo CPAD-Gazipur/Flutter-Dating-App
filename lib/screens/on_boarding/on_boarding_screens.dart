@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dating_app/cubits/signup/signup_cubit.dart';
-import 'package:flutter_dating_app/repositories/auth/auth_repository.dart';
+import 'package:flutter_dating_app/blocs/onboarding/onboarding_bloc.dart';
+import 'package:flutter_dating_app/repositories/repositories.dart';
 import 'package:flutter_dating_app/widgets/widgets.dart';
 
+import '../../cubits/cubits.dart';
 import 'on_boarding_tab_screens/screens.dart';
 
 class OnBoardingScreen extends StatelessWidget {
@@ -12,13 +13,25 @@ class OnBoardingScreen extends StatelessWidget {
   static const String routeName = '/on-boarding';
   static Route route() {
     return MaterialPageRoute(
-      builder: (context) => BlocProvider(
-        create: (_) => SignupCubit(
-          authRepository: context.read<AuthRepository>(),
-        ),
+      settings: const RouteSettings(name: routeName),
+      builder: (context) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => SignupCubit(
+              authRepository: context.read<AuthRepository>(),
+            ),
+          ),
+          BlocProvider(
+            create: (_) => OnBoardingBloc(
+              databaseRepository: DatabaseRepository(),
+              storageRepository: StorageRepository(),
+            )..add(
+                StartOnBoardingEvent(),
+              ),
+          ),
+        ],
         child: const OnBoardingScreen(),
       ),
-      settings: const RouteSettings(name: routeName),
     );
   }
 
@@ -29,6 +42,7 @@ class OnBoardingScreen extends StatelessWidget {
     Tab(text: 'Demographics'),
     Tab(text: 'Pictures'),
     Tab(text: 'Biography'),
+    Tab(text: 'Location'),
   ];
 
   @override
@@ -55,6 +69,7 @@ class OnBoardingScreen extends StatelessWidget {
                   DemographicsTabScreen(tabController: tabController),
                   PicturesTabScreen(tabController: tabController),
                   BiographyTabScreen(tabController: tabController),
+                  LocationTabScreen(tabController: tabController),
                 ],
               ),
             );

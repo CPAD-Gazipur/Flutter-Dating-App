@@ -5,9 +5,9 @@ import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 import '../../../widgets/widgets.dart';
 
-class BiographyTabScreen extends StatelessWidget {
+class LocationTabScreen extends StatelessWidget {
   final TabController tabController;
-  const BiographyTabScreen({
+  const LocationTabScreen({
     Key? key,
     required this.tabController,
   }) : super(key: key);
@@ -34,64 +34,17 @@ class BiographyTabScreen extends StatelessWidget {
                     children: [
                       CustomTextHeader(
                         tabController: tabController,
-                        text: 'Describe Yourself a Bit ?',
+                        text: 'Where Are you?',
                       ),
                       CustomTextField(
-                        hintText: 'ENTER YOUR BIO',
+                        hintText: 'ENTER YOUR LOCATION',
                         onChanged: (value) {
                           context.read<OnBoardingBloc>().add(
                                 UpdateUser(
-                                  user: state.user.copyWith(bio: value),
+                                  user: state.user.copyWith(location: value),
                                 ),
                               );
                         },
-                      ),
-                      const SizedBox(
-                        height: 100,
-                      ),
-                      CustomTextHeader(
-                        tabController: tabController,
-                        text: 'What Do You Like?',
-                      ),
-                      Row(
-                        children: [
-                          CustomTextContainer(
-                            tabController: tabController,
-                            text: 'MUSIC',
-                          ),
-                          CustomTextContainer(
-                            tabController: tabController,
-                            text: 'ECONOMICS',
-                          ),
-                          CustomTextContainer(
-                            tabController: tabController,
-                            text: 'ART',
-                          ),
-                          CustomTextContainer(
-                            tabController: tabController,
-                            text: 'POLITICS',
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          CustomTextContainer(
-                            tabController: tabController,
-                            text: 'NATURE',
-                          ),
-                          CustomTextContainer(
-                            tabController: tabController,
-                            text: 'HIKING',
-                          ),
-                          CustomTextContainer(
-                            tabController: tabController,
-                            text: 'FOOTBALL',
-                          ),
-                          CustomTextContainer(
-                            tabController: tabController,
-                            text: 'MOVIES',
-                          ),
-                        ],
                       ),
                     ],
                   ),
@@ -99,7 +52,7 @@ class BiographyTabScreen extends StatelessWidget {
                     children: [
                       StepProgressIndicator(
                         totalSteps: 6,
-                        currentStep: 5,
+                        currentStep: 6,
                         selectedColor: Theme.of(context).primaryColor,
                         unselectedColor: Theme.of(context).backgroundColor,
                       ),
@@ -116,7 +69,7 @@ class BiographyTabScreen extends StatelessWidget {
               ));
         } else {
           return const Center(
-            child: Text('Something went wrong'),
+            child: Text('Something went wrong.'),
           );
         }
       },

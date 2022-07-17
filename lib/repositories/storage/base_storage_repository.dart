@@ -1,7 +1,9 @@
 import 'package:image_picker/image_picker.dart';
 
-abstract class BaseStorageRepository {
-  Future<void> uploadImage(XFile image);
+import '../../models/models.dart';
 
-  Future<String> getDownloadUrl(String imageName);
+abstract class BaseStorageRepository {
+  Future<void> uploadImage(User user, XFile image);
+
+  Future<String> getDownloadUrl(User user, String imageName);
 }
