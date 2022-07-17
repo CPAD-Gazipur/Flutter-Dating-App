@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dating_app/blocs/images/images_bloc.dart';
 import 'package:flutter_dating_app/config/config.dart';
 import 'package:flutter_dating_app/repositories/auth/auth_repository.dart';
+import 'package:flutter_dating_app/repositories/database/database_repository.dart';
 import 'package:flutter_dating_app/screens/screens.dart';
 
 import 'blocs/blocs.dart';
@@ -28,15 +30,16 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (_) => AuthBloc(
-              authRepository: context.read<AuthRepository>(),
-            ),
+            create: (_) =>
+                AuthBloc(authRepository: context.read<AuthRepository>()),
           ),
           BlocProvider(
-            create: (_) => SwipeBloc()
-              ..add(
-                LoadUsersEvent(users: User.users),
-              ),
+            create: (_) => SwipeBloc()..add(LoadUsersEvent(users: User.users)),
+          ),
+          BlocProvider(
+            create: (_) => ImagesBloc(
+              databaseRepository: DatabaseRepository(),
+            )..add(LoadImages()),
           ),
         ],
         child: MaterialApp(

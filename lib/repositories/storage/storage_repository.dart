@@ -12,7 +12,18 @@ class StorageRepository extends BaseStorageRepository {
     try {
       await firebaseStorage
           .ref('user_1/${image.name}')
-          .putFile(File(image.path));
+          .putFile(File(image.path))
+          .then(
+            (p0) => DatabaseRepository().updateUserPictures(image.name),
+          );
     } catch (_) {}
+  }
+
+  @override
+  Future<String> getDownloadUrl(String imageName) async {
+    String downloadUrl =
+        await firebaseStorage.ref('user_1/$imageName').getDownloadURL();
+
+    return downloadUrl;
   }
 }

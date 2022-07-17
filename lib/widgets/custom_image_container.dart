@@ -3,10 +3,10 @@ import 'package:flutter_dating_app/repositories/repositories.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CustomImageContainer extends StatelessWidget {
-  final TabController tabController;
+  final String? imageUrl;
   const CustomImageContainer({
     Key? key,
-    required this.tabController,
+    this.imageUrl,
   }) : super(key: key);
 
   @override
@@ -28,33 +28,38 @@ class CustomImageContainer extends StatelessWidget {
             right: BorderSide(color: Theme.of(context).primaryColor, width: 1),
           ),
         ),
-        child: Align(
-          alignment: Alignment.bottomRight,
-          child: IconButton(
-            icon: Icon(
-              Icons.add_circle,
-              color: Theme.of(context).colorScheme.secondary,
-            ),
-            onPressed: () async {
-              ImagePicker picker = ImagePicker();
-              final XFile? image =
-                  await picker.pickImage(source: ImageSource.gallery);
-
-              if (image == null) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: const Text('No image slected'),
+        child: (imageUrl == null)
+            ? Align(
+                alignment: Alignment.bottomRight,
+                child: IconButton(
+                  icon: Icon(
+                    Icons.add_circle,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
-                );
-              }
+                  onPressed: () async {
+                    ImagePicker picker = ImagePicker();
+                    final XFile? image =
+                        await picker.pickImage(source: ImageSource.gallery);
 
-              if (image != null) {
-                StorageRepository().uploadImage(image);
-                debugPrint('Uploading...');
-              }
-            },
-          ),
-        ),
+                    if (image == null) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('No image selected'),
+                        ),
+                      );
+                    }
+
+                    if (image != null) {
+                      StorageRepository().uploadImage(image);
+                      debugPrint('Uploading...');
+                    }
+                  },
+                ),
+              )
+            : Image.network(
+                imageUrl!,
+                fit: BoxFit.cover,
+              ),
       ),
     );
   }
