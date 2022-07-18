@@ -46,14 +46,24 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => OnBoardingBloc(
-              databaseRepository: DatabaseRepository(),
-              storageRepository: StorageRepository(),
+              databaseRepository: context.read<DatabaseRepository>(),
+              storageRepository: context.read<StorageRepository>(),
             ),
           ),
           BlocProvider(
             create: (context) => SwipeBloc()
               ..add(
                 LoadUsersEvent(users: User.users),
+              ),
+          ),
+          BlocProvider(
+            create: (context) => ProfileBloc(
+              authBloc: context.read<AuthBloc>(),
+              databaseRepository: context.read<DatabaseRepository>(),
+            )..add(
+                LoadProfile(
+                  userID: context.read<AuthBloc>().state.user!.uid,
+                ),
               ),
           ),
         ],
