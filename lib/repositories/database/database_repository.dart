@@ -38,4 +38,17 @@ class DatabaseRepository extends BaseDatabaseRepository {
         .update(user.toMap())
         .then((value) => debugPrint('User data updated.'));
   }
+
+  @override
+  Stream<List<User>> getUsers(String userID, String gender) {
+    return firebaseFirestore
+        .collection('users')
+        .where('gender', isNotEqualTo: gender)
+        .snapshots()
+        .map((snapshot) => snapshot.docs
+            .map(
+              (doc) => User.fromSnapshot(doc),
+            )
+            .toList());
+  }
 }

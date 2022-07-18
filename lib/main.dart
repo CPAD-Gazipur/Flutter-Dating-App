@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => SwipeBloc()
               ..add(
-                LoadUsersEvent(users: User.users),
+                LoadUsers(users: User.users),
               ),
           ),
           BlocProvider(

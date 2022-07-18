@@ -4,32 +4,41 @@ abstract class SwipeEvent extends Equatable {
   const SwipeEvent();
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
-class LoadUsersEvent extends SwipeEvent {
-  final List<User> users;
+class LoadUsers extends SwipeEvent {
+  final String userID;
 
-  const LoadUsersEvent({required this.users});
+  const LoadUsers({required this.userID});
 
   @override
-  List<Object> get props => [users];
+  List<Object?> get props => [userID];
 }
 
-class SwipeLeftEvent extends SwipeEvent {
+class UpdateHome extends SwipeEvent {
+  final List<User>? users;
+
+  const UpdateHome({required this.users});
+
+  @override
+  List<Object?> get props => [users];
+}
+
+class SwipeLeft extends SwipeEvent {
   final User user;
 
-  const SwipeLeftEvent({required this.user});
+  const SwipeLeft({required this.user});
 
   @override
-  List<Object> get props => [user];
+  List<Object?> get props => [user];
 }
 
-class SwipeRightEvent extends SwipeEvent {
+class SwipeRight extends SwipeEvent {
   final User user;
 
-  const SwipeRightEvent({required this.user});
+  const SwipeRight({required this.user});
 
   @override
-  List<Object> get props => [user];
+  List<Object?> get props => [user];
 }

@@ -54,13 +54,13 @@ class HomeScreen extends StatelessWidget {
                   onDragEnd: (drag) {
                     if (drag.velocity.pixelsPerSecond.dx < 0) {
                       context.read<SwipeBloc>().add(
-                            SwipeLeftEvent(
+                            SwipeLeft(
                               user: state.users[0],
                             ),
                           );
                     } else {
                       context.read<SwipeBloc>().add(
-                            SwipeRightEvent(
+                            SwipeRight(
                               user: state.users[0],
                             ),
                           );
@@ -82,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         context.read<SwipeBloc>().add(
-                              SwipeLeftEvent(
+                              SwipeLeft(
                                 user: state.users[0],
                               ),
                             );
@@ -95,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         context.read<SwipeBloc>().add(
-                              SwipeRightEvent(
+                              SwipeRight(
                                 user: state.users[0],
                               ),
                             );

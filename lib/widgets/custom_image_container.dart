@@ -48,6 +48,7 @@ class CustomImageContainer extends StatelessWidget {
                         await picker.pickImage(source: ImageSource.gallery);
 
                     if (image == null) {
+                      // ignore: use_build_context_synchronously
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text('No image selected'),
@@ -56,6 +57,7 @@ class CustomImageContainer extends StatelessWidget {
                     }
 
                     if (image != null) {
+                      // ignore: use_build_context_synchronously
                       context
                           .read<OnBoardingBloc>()
                           .add(UpdateUserImages(image: image));

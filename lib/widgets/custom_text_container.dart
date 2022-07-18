@@ -24,7 +24,7 @@ class CustomTextContainer extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
               Theme.of(context).primaryColorLight,
-              Theme.of(context).accentColor,
+              Theme.of(context).colorScheme.secondary,
             ],
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,

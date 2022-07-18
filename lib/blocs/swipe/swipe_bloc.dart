@@ -8,16 +8,16 @@ part 'swipe_state.dart';
 
 class SwipeBloc extends Bloc<SwipeEvent, SwipeState> {
   SwipeBloc() : super(SwipeLoading()) {
-    on<LoadUsersEvent>(_onLoadUsersEvent);
-    on<SwipeLeftEvent>(_onSwipeLeftEvent);
-    on<SwipeRightEvent>(_onSwipeRightEvent);
+    on<LoadUsers>(_onLoadUsers);
+    on<SwipeLeft>(_onSwipeLeft);
+    on<SwipeRight>(_onSwipeRight);
   }
 
-  void _onLoadUsersEvent(LoadUsersEvent event, Emitter<SwipeState> emit) {
-    emit(SwipeLoaded(users: event.users));
+  void _onLoadUsers(LoadUsers event, Emitter<SwipeState> emit) {
+    emit(SwipeLoaded(users: event.userID));
   }
 
-  void _onSwipeLeftEvent(SwipeLeftEvent event, Emitter<SwipeState> emit) {
+  void _onSwipeLeft(SwipeLeft event, Emitter<SwipeState> emit) {
     if (state is SwipeLoaded) {
       try {
         emit(
@@ -31,7 +31,7 @@ class SwipeBloc extends Bloc<SwipeEvent, SwipeState> {
     }
   }
 
-  void _onSwipeRightEvent(SwipeRightEvent event, Emitter<SwipeState> emit) {
+  void _onSwipeRight(SwipeRight event, Emitter<SwipeState> emit) {
     if (state is SwipeLoaded) {
       try {
         emit(

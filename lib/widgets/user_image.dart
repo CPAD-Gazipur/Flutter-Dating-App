@@ -9,6 +9,17 @@ class UserImage extends StatelessWidget {
   final BoxBorder? border;
   final Widget? child;
 
+  const UserImage.large({
+    Key? key,
+    this.imageUrl,
+    this.height = double.infinity,
+    this.width = double.infinity,
+    this.margin,
+    this.boxShadow,
+    this.border,
+    this.child,
+  }) : super(key: key);
+
   const UserImage.medium({
     Key? key,
     this.imageUrl,

@@ -5,7 +5,9 @@ ThemeData theme() {
     primaryColor: const Color(0xFF2B2E4A),
     // primaryColorDark: Color(0xFFFC0028),
     primaryColorLight: const Color(0xFFD84482),
-    accentColor: const Color(0xFFF77F46),
+    colorScheme: ColorScheme.fromSwatch().copyWith(
+      secondary: const Color(0xFFF77F46),
+    ),
     scaffoldBackgroundColor: Colors.white,
     backgroundColor: const Color(0xFFF4F4F4),
 

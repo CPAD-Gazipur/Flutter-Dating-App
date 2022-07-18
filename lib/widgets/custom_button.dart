@@ -45,17 +45,19 @@ class CustomButton extends StatelessWidget {
             await context.read<SignupCubit>().signupWithCredentials();
 
             User user = User(
+              // ignore: use_build_context_synchronously
               id: context.read<SignupCubit>().state.user!.uid,
               name: '',
               age: 0,
               gender: '',
-              imageUrls: [],
-              interests: [],
+              imageUrls: const [],
+              interests: const [],
               bio: '',
               jobTitle: '',
               location: '',
             );
 
+            // ignore: use_build_context_synchronously
             context
                 .read<OnBoardingBloc>()
                 .add(StartOnBoardingEvent(user: user));
