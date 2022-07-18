@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dating_app/blocs/blocs.dart';
+import 'package:flutter_dating_app/models/models.dart';
 
 import '../cubits/cubits.dart';
 
@@ -34,9 +36,29 @@ class CustomButton extends StatelessWidget {
           primary: Colors.transparent,
         ),
         onPressed: () async {
-          tabController.animateTo(tabController.index + 1);
+          if (tabController.index == 6) {
+            Navigator.pushNamed(context, '/');
+          } else {
+            tabController.animateTo(tabController.index + 1);
+          }
           if (tabController.index == 2) {
-            context.read<SignupCubit>().signupWithCredentials();
+            await context.read<SignupCubit>().signupWithCredentials();
+
+            User user = User(
+              id: context.read<SignupCubit>().state.user!.uid,
+              name: '',
+              age: 0,
+              gender: '',
+              imageUrls: [],
+              interests: [],
+              bio: '',
+              jobTitle: '',
+              location: '',
+            );
+
+            context
+                .read<OnBoardingBloc>()
+                .add(StartOnBoardingEvent(user: user));
           }
         },
         child: SizedBox(

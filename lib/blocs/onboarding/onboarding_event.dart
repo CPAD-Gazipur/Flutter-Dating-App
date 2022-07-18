@@ -7,7 +7,26 @@ abstract class OnBoardingEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class StartOnBoardingEvent extends OnBoardingEvent {}
+class StartOnBoardingEvent extends OnBoardingEvent {
+  final User user;
+
+  const StartOnBoardingEvent({
+    this.user = const User(
+      id: '',
+      name: '',
+      age: 0,
+      gender: '',
+      imageUrls: [],
+      jobTitle: '',
+      interests: [],
+      bio: '',
+      location: '',
+    ),
+  });
+
+  @override
+  List<Object?> get props => [user];
+}
 
 class UpdateUser extends OnBoardingEvent {
   final User user;

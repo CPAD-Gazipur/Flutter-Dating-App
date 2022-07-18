@@ -5,6 +5,7 @@ import 'package:flutter_dating_app/config/config.dart';
 import 'package:flutter_dating_app/screens/screens.dart';
 
 import 'blocs/blocs.dart';
+import 'cubits/cubits.dart';
 import 'models/models.dart';
 import 'repositories/repositories.dart';
 
@@ -38,10 +39,15 @@ class MyApp extends StatelessWidget {
               authRepository: context.read<AuthRepository>(),
             ),
           ),
-          BlocProvider<OnBoardingBloc>(
+          BlocProvider(
+            create: (context) => SignupCubit(
+              authRepository: context.read<AuthRepository>(),
+            ),
+          ),
+          BlocProvider(
             create: (context) => OnBoardingBloc(
-              databaseRepository: context.read<DatabaseRepository>(),
-              storageRepository: context.read<StorageRepository>(),
+              databaseRepository: DatabaseRepository(),
+              storageRepository: StorageRepository(),
             ),
           ),
           BlocProvider(

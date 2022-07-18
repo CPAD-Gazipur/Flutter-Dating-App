@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../repositories/repositories.dart';
 
@@ -19,9 +19,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthUserChanged>(_onAuthUserChanged);
 
     _streamAuthSubscription = _authRepository.user.listen((user) {
-      if (user != null) {
-        add(AuthUserChanged(user: user));
-      }
+      add(AuthUserChanged(user: user));
     });
   }
 

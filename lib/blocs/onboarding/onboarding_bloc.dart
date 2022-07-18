@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dating_app/models/models.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -27,21 +27,9 @@ class OnBoardingBloc extends Bloc<OnBoardingEvent, OnBoardingState> {
     StartOnBoardingEvent event,
     Emitter<OnBoardingState> emit,
   ) async {
-    User user = const User(
-      id: '',
-      name: '',
-      age: 0,
-      gender: '',
-      imageUrls: [],
-      interests: [],
-      bio: '',
-      jobTitle: '',
-      location: '',
-    );
+    await _databaseRepository.createUser(event.user);
 
-    String docID = await _databaseRepository.createUser(user);
-
-    emit(OnBoardingLoaded(user: user.copyWith(id: docID)));
+    emit(OnBoardingLoaded(user: event.user));
   }
 
   void _onUpdateUser(UpdateUser event, Emitter<OnBoardingState> emit) {
