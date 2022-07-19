@@ -6,7 +6,6 @@ import 'package:flutter_dating_app/screens/screens.dart';
 
 import 'blocs/blocs.dart';
 import 'cubits/cubits.dart';
-import 'models/models.dart';
 import 'repositories/repositories.dart';
 
 void main() async {
@@ -51,10 +50,10 @@ class MyApp extends StatelessWidget {
             ),
           ),
           BlocProvider(
-            create: (context) => SwipeBloc()
-              ..add(
-                LoadUsers(users: User.users),
-              ),
+            create: (context) => SwipeBloc(
+              authBloc: context.read<AuthBloc>(),
+              databaseRepository: context.read<DatabaseRepository>(),
+            ),
           ),
           BlocProvider(
             create: (context) => ProfileBloc(

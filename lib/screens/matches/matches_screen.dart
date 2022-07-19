@@ -24,6 +24,7 @@ class MatchesScreen extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'MATCHES',
+        hasAction: false,
       ),
       body: SingleChildScrollView(
         child: Padding(
