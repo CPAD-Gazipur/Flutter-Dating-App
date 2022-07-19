@@ -30,14 +30,17 @@ class SplashScreen extends StatelessWidget {
             Timer(
               const Duration(seconds: 1),
               () => Navigator.of(context).pushNamedAndRemoveUntil(
-                OnBoardingScreen.routeName,
-                ModalRoute.withName('/onBoarding'),
+                LoginScreen.routeName,
+                ModalRoute.withName('/login'),
               ),
             );
           } else if (state.status == AuthStatus.authenticated) {
             Timer(
               const Duration(seconds: 1),
-              () => Navigator.of(context).pushNamed(HomeScreen.routeName),
+              () => Navigator.of(context).pushNamedAndRemoveUntil(
+                HomeScreen.routeName,
+                ModalRoute.withName('/'),
+              ),
             );
           }
         },

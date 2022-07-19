@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dating_app/screens/login/login_screen.dart';
 
 import '../models/models.dart';
 import '../screens/screens.dart';
@@ -20,6 +21,8 @@ class AppRoute {
         return OnBoardingScreen.route();
       case ProfileScreen.routeName:
         return ProfileScreen.route();
+      case LoginScreen.routeName:
+        return LoginScreen.route();
       case UserScreen.routeName:
         return UserScreen.route(user: settings.arguments as User);
       default:
