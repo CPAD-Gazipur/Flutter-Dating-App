@@ -38,6 +38,15 @@ class LocationTabScreen extends StatelessWidget {
                       ),
                       CustomTextField(
                         hintText: 'ENTER YOUR LOCATION',
+                        onSubmitted: (value) {
+                          if (value.isNotEmpty) {
+                            context.read<OnBoardingBloc>().add(
+                                  UpdateUser(
+                                    user: state.user.copyWith(location: value),
+                                  ),
+                                );
+                          }
+                        },
                         onChanged: (value) {
                           context.read<OnBoardingBloc>().add(
                                 UpdateUser(

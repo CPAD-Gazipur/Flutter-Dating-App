@@ -42,7 +42,9 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   const SizedBox(height: 10),
                   UserImage.medium(
-                    imageUrl: state.user.imageUrls[0],
+                    imageUrl: state.user.imageUrls.isEmpty
+                        ? null
+                        : state.user.imageUrls[0],
                     child: Container(
                       height: MediaQuery.of(context).size.height / 4,
                       decoration: BoxDecoration(
@@ -102,23 +104,43 @@ class ProfileScreen extends StatelessWidget {
                             title: 'Pictures', icon: Icons.edit),
                         SizedBox(
                           height: 125,
-                          child: ListView.builder(
-                            itemCount: state.user.imageUrls.length,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: const EdgeInsets.only(right: 5.0),
-                                child: UserImage.small(
-                                  width: 100,
-                                  imageUrl: state.user.imageUrls[index],
-                                  border: Border.all(
-                                    color: Theme.of(context).primaryColor,
-                                  ),
+                          child: state.user.imageUrls.isEmpty
+                              ? ListView.builder(
+                                  itemCount: 1,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding:
+                                          const EdgeInsets.only(right: 5.0),
+                                      child: UserImage.small(
+                                        width: 100,
+                                        imageUrl: null,
+                                        border: Border.all(
+                                          color: Theme.of(context).primaryColor,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                )
+                              : ListView.builder(
+                                  itemCount: state.user.imageUrls.length,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding:
+                                          const EdgeInsets.only(right: 5.0),
+                                      child: UserImage.small(
+                                        width: 100,
+                                        imageUrl: state.user.imageUrls[index],
+                                        border: Border.all(
+                                          color: Theme.of(context).primaryColor,
+                                        ),
+                                      ),
+                                    );
+                                  },
                                 ),
-                              );
-                            },
-                          ),
                         ),
                         const TitleWithIcon(
                             title: 'Location', icon: Icons.edit),

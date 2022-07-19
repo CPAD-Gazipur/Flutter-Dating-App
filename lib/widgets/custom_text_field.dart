@@ -3,17 +3,20 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatelessWidget {
   final String hintText;
   final Function(String)? onChanged;
+  final Function(String)? onSubmitted;
 
   const CustomTextField({
     Key? key,
     required this.hintText,
     this.onChanged,
+    this.onSubmitted,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       onChanged: onChanged,
+      onSubmitted: onSubmitted,
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,

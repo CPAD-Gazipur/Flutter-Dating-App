@@ -38,6 +38,15 @@ class BiographyTabScreen extends StatelessWidget {
                       ),
                       CustomTextField(
                         hintText: 'ENTER YOUR BIO',
+                        onSubmitted: (value) {
+                          if (value.isNotEmpty) {
+                            context.read<OnBoardingBloc>().add(
+                                  UpdateUser(
+                                    user: state.user.copyWith(bio: value),
+                                  ),
+                                );
+                          }
+                        },
                         onChanged: (value) {
                           context.read<OnBoardingBloc>().add(
                                 UpdateUser(

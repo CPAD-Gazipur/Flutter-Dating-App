@@ -70,6 +70,16 @@ class DemographicsTabScreen extends StatelessWidget {
                       ),
                       CustomTextField(
                         hintText: 'ENTER YOUR AGE',
+                        onSubmitted: (value) {
+                          if (value.isNotEmpty) {
+                            context.read<OnBoardingBloc>().add(
+                                  UpdateUser(
+                                    user: state.user
+                                        .copyWith(age: int.parse(value)),
+                                  ),
+                                );
+                          }
+                        },
                         onChanged: (value) {
                           context.read<OnBoardingBloc>().add(
                                 UpdateUser(
